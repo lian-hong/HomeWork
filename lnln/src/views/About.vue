@@ -1,27 +1,50 @@
 <template>
   <div class="about">
-    <yang-table init-request :format="formatData" @onLoad="onLoad"  :column="column" index checkbox :data="data_1" :params="params_1" url="/name/" method="post">
+    <yang-table
+      init-request
+      :format="formatData"
+      @onLoad="onLoad"
+      :column="column"
+      index
+      checkbox
+      :data="data_1"
+      :params="params_1"
+      url="/name/"
+      method="post"
+    >
       <template v-slot:operation="slot">
-        <yang-button type="primary" @click="handleEdit(slot.data)">编辑</yang-button>
-        <yang-button type="danger" @click="handleDelete(slot.data)">删除</yang-button>
-        <yang-button type="success" @click="handleEdit(slot.data)">编辑</yang-button>
-        <yang-button type="warning" @click="handleDelete(slot.data)">删除</yang-button>
+        <yang-button type="primary" @click="handleEdit(slot.data)"
+          >编辑</yang-button
+        >
+        <yang-button type="danger" @click="handleDelete(slot.data)"
+          >删除</yang-button
+        >
+        <yang-button type="success" @click="handleEdit(slot.data)"
+          >编辑</yang-button
+        >
+        <yang-button type="warning" @click="handleDelete(slot.data)"
+          >删除</yang-button
+        >
       </template>
     </yang-table>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'About',
-  data () {
+  data() {
     return {
       column: [
         { label: '姓名', prop: 'name' },
         { label: '性别', prop: 'gender' },
         { label: '创建时间', prop: 'create_date' },
-        { label: '操作', type: 'slot', slot_name: 'operation', prop: 'operation' }
+        {
+          label: '操作',
+          type: 'slot',
+          slot_name: 'operation',
+          prop: 'operation'
+        }
       ],
       data_1: {
         name: 'jack'
@@ -36,18 +59,18 @@ export default {
     yangTable: () => import('../components/table/index.vue')
   },
   methods: {
-    handleEdit (row) {
+    handleEdit(row) {
       console.log(row)
     },
-    handleDelete (row) {
+    handleDelete(row) {
       console.log(row)
     },
-    onLoad (data) {
+    onLoad(data) {
       console.log(data)
     },
-    formatData (data) {
+    formatData(data) {
       const tableData = data.data
-      tableData.forEach(item => {
+      tableData.forEach((item) => {
         item.gender = item.gender === '男' ? 1 : 0
       })
       return tableData

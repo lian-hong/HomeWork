@@ -93,7 +93,7 @@ export default {
       const url = this.url
       if (!url) {
         throw new Error('url is required')
-        // return false
+        return false
       }
       try {
         const requestData = {
