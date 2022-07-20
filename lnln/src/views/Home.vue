@@ -29,3 +29,10 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.home{
+  height: 100%;
+  background-color: #fff;
+}
+  
+</style>
