@@ -2,7 +2,7 @@
   <button
     @click="change"
     :disabled="disabled || loading"
-    class="song-button"
+    class="yang-button"
     :style="[minWidthCss]"
     :class="[theme, isRound, isBorder, isSize, blockCss]"
   >
@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     theme() {
-      return this.type ? `song-button-${this.type}` : ''
+      return this.type ? `yang-button-${this.type}` : ''
     },
     isRound() {
       return this.round ? 'is-round' : ''
@@ -56,7 +56,7 @@ export default {
       return this.border ? 'is-border' : ''
     },
     isSize() {
-      return this.size ? `song-button-${this.size}` : ''
+      return this.size ? `yang-button-${this.size}` : ''
     },
     minWidthCss() {
       if (!this.minWidth) return ''
@@ -69,7 +69,7 @@ export default {
       return this.suffix ? `icon-${this.suffix}` : ''
     },
     blockCss() {
-      return this.block ? 'song-button-block' : ''
+      return this.block ? 'yang-button-block' : ''
     }
   },
   methods: {
