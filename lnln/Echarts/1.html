@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <!-- 步骤1：引入echarts.js文件 -->
+    <script src="lib/echarts.min.js"></script>
+    <!-- 
+  步骤1：引入echarts.js文件
+  步骤2：准备一个呈现图表的盒子
+  步骤3：初始化echarts实例对象
+  步骤4：准备配置项
+  步骤5：将配置项设置给echarts实例对象
+   -->
+  </head>
+
+  <body>
+    <!-- 步骤2：准备一个呈现图表的盒子 -->
+    <div style="width: 600px; height: 400px"></div>
+    <script>
+      // 步骤3：初始化echarts实例对象
+      // 参数, dom,决定图表最终呈现的位置
+      var mCharts = echarts.init(document.querySelector("div"));
+      // 步骤4：准备配置项
+      var option = {
+        tooltip: {
+          trigger: "axis",
+          triggerOn: "click",
+          // formatter: "{b}的成绩是{c},{c1},{c2},{c3}",
+          formatter:function(arg){
+            return arg[0].name + '的分数是' + arg[0].data
+          }
+        },
+        toolbox:{
+          feature:{
+            saveAsImage:{},
+            dataView:{},
+            restore:{},
+            dataZoom:{},
+            magicType:{
+              type:['bar','line']
+            },
+          }
+        },
+        xAxis: {
+          type: "category",
+          data: ["小明", "小红", "小王", "小刘", "小宋", "小张"],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "语文",
+            type: "bar",
+            data: [74, 97, 80, 22, 15, 55],
+          },
+          {
+            name: "数学",
+            type: "bar",
+            data: [70, 90, 84, 11, 55, 88],
+          },
+          {
+            name: "英语",
+            type: "bar",
+            data: [78, 94, 89, 89, 58, 67],
+          },
+          {
+            name: "体育",
+            type: "bar",
+            data: [79, 99, 87, 97, 86, 43],
+          },
+        ],
+      };
+      // 步骤5：将配置项设置给echarts实例对象
+      mCharts.setOption(option);
+    </script>
+  </body>
+</html>
