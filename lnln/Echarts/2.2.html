@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="lib/echarts.min.js"></script>
+  </head>
+
+  <body>
+    <div style="width: 600px; height: 400px"></div>
+    <script>
+      var mCharts = echarts.init(document.querySelector('div'))
+      var xDataArr = [
+        '1月',
+        '2月',
+        '3月',
+        '4月',
+        '5月',
+        '6月',
+        '7月',
+        '8月',
+        '9月',
+        '10月',
+        '11月',
+        '12月'
+      ]
+      var yDataArr1 = [
+        3000, 2800, 900, 1000, 800, 700, 1400, 1300, 900, 1000, 800, 600
+      ]
+      var yDataArr2 = [
+        2000, 3800, 1900, 500, 900, 1700, 2400, 300, 1900, 1500, 1800, 200
+      ]
+      var option = {
+        xAxis: {
+          type: 'category',
+          data: xDataArr,
+          boundaryGap: false
+        },
+        yAxis: {
+          type: 'value',
+          boundaryGap: false,
+          scale: true
+        },
+        series: [
+          {
+            name: '康师傅2021销售额年度报表',
+            type: 'line',
+            data: yDataArr1,
+            stack: 'all',
+            areaStyle: {
+              color: 'skyblue'
+            }
+          },
+          {
+            name: '康师傅2021营业额年度报表',
+            type: 'line',
+            data: yDataArr2,
+            stack: 'all',
+            areaStyle: {
+              color: 'pink'
+            }
+          }
+        ]
+      }
+      mCharts.setOption(option)
+    </script>
+  </body>
+</html>
