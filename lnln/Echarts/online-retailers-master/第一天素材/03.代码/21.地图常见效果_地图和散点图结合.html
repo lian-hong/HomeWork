@@ -59,6 +59,9 @@
     var scatterData = [
       {
         value: [117.283042, 31.86119]
+      },
+      {
+        value: [113.483042, 33.86119]
       }
     ]
     var mCharts = echarts.init(document.querySelector("div"))
@@ -94,7 +97,7 @@
           min: 0,
           max: 300,
           inRange: {
-            color: ['white', 'red'] // 控制颜色渐变的范围
+            color: ['white', 'red'] // 控制颜色渐变范围
           },
           calculable: true // 出现滑块
         }
