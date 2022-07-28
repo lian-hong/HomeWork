@@ -36,31 +36,27 @@
       },
       series: [
         {
-          // type: 'scatter',
-          type: 'effectScatter', // 指明图表为带涟漪动画的散点图
-          showEffectOn: 'emphasis', // 出现涟漪动画的时机 render emphasis
+          type: 'effectScatter', 
+          showEffectOn: 'emphasis',
           rippleEffect: {
-            scale: 10 // 涟漪动画时, 散点的缩放比例
+            scale: 10 
           },
           data: axisData,
           // symbolSize: 30
-          symbolSize: function (arg) { // 控制散点的大小
+          symbolSize: function (arg) { 
             // console.log(arg)
             var height = arg[0] / 100
             var weight = arg[1]
-            // bmi = 体重kg / (身高m*身高m)   大于28,就代表肥胖
             var bmi = weight / (height * height)
             if (bmi > 28) {
               return 20
             }
             return 5
           },
-          itemStyle: { // 控制散点的样式
+          itemStyle: {
             color: function (arg) {
-              // console.log(arg)
               var height = arg.data[0] / 100
               var weight = arg.data[1]
-              // bmi = 体重kg / (身高m*身高m)   大于28,就代表肥胖
               var bmi = weight / (height * height)
               if (bmi > 28) {
                 return 'red'
